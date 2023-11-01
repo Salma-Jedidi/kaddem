@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  # Service de la base de données mysqldb
+  mysqldb:
+
+    container_name: mysqldb
+    image: mysql:5.7
+
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: kaddemProject
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+  # Service de l'application Spring Boot
+  app:
+    image: salmajedidi/docker:alpine
+
+    container_name: kaddemProject
+    restart: on-failure
+    environment:
+      SPRING_APPLICATION_JSON: '{
+            "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/kaddemProject?createDatabaseIfNotExist=true",
+            "spring.datasource.username" : "root",
+            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+            "spring.jpa.hibernate.ddl-auto" : "update"
+            }'
+
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysqldb
+    volumes:
+      - app_data:/app/data
+
+
