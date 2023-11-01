@@ -16,7 +16,7 @@ services:
       - /home/mysql/data:/var/lib/mysql
   # Service de l'application Spring Boot
   app:
-    image: salmajedidi/docker:alpine
+    image: salmajedidi/docker
 
     container_name: kaddemProject
     restart: on-failure
