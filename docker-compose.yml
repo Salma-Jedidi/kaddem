@@ -35,6 +35,7 @@ services:
     volumes:
       - app_data:/app/data
   volumes:
-  app_data:
+    app_data:
+    db:
 
 
