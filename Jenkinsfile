@@ -1,5 +1,15 @@
 pipeline{
-    agent any
+        agent {
+        label 'agentubuntu'
+    }
+
+    environment {
+        NEXUS_CREDENTIALS = credentials('nexusconf')
+        SONAR_CREDENTIALS = credentials('sonarconf')
+        DOCKER_CREDENTIALS = credentials('dockerconf')
+        NEXUS_URL = 'http://192.168.33.10:8081/'
+        
+    }
     stages {
 
         stage("Testing JDK"){
