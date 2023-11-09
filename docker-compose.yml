@@ -10,7 +10,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_DATABASE: kaddemProject
     volumes:
-      - /home/mysql/data:/var/lib/mysql
+      - /var/lib/mysql
 
   app:
     image: salmajedidi/docker
