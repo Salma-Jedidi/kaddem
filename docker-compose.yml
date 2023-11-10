@@ -30,6 +30,6 @@ services:
     volumes:
       - app_data:/app/data
 volumes:
-  salmajedidipipeline_app_data:
-  salmajedidipipeline_db:
+  app_data:
+  db:
 
