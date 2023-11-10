@@ -29,7 +29,6 @@ services:
       - mysqldb
     volumes:
       - salmajedidipipeline_app_data:/app/data
-
-volumes:
-  salmajedidipipeline_app_data:
-  salmajedidipipeline_db:  # Ajout de cette ligne pour définir un volume pour la base de données
+      volumes:
+      salmajedidipipeline_app_data:
+      salmajedidipipeline_db:
