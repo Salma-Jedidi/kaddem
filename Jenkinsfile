@@ -211,6 +211,19 @@ stage('Verify Docker Compose Installation') {
                     }
                 }
             }
+
+              stage('Test JUnit + Mockito') {
+            steps {
+                        sh 'mvn test'
+             }
+    }     
+              stage('SonarQube') {
+            steps {
+                        sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dmaven.test.skip=true';
+
+            }
+        }
+
   
     stage('Deploy to Nexus') {
      steps {
