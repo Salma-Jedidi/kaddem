@@ -29,4 +29,7 @@ services:
       - mysqldb
     volumes:
       - app_data:/app/data
+volumes:
+  salmajedidipipeline_app_data:
+  salmajedidipipeline_db:
 
